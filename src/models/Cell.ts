@@ -22,8 +22,16 @@ export class Cell {
         this.id = Math.random();
     }
 
-    isEmpty() {
+    isEmpty(): boolean {
         return this.piece === null;
+    }
+
+    isEnemy(target: Cell): boolean {
+        if (target.piece) {
+            return this.piece?.color !== target.piece.color;
+        }
+
+        return false;
     }
 
     isEmptyVerical(target: Cell): boolean {
