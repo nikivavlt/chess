@@ -4,11 +4,14 @@ import { Bishop } from "./pieces/Bishop";
 import { King } from "./pieces/King";
 import { Knight } from "./pieces/Knight";
 import { Pawn } from "./pieces/Pawn";
+import { Piece } from "./pieces/Piece";
 import { Queen } from "./pieces/Queen";
 import { Rook } from "./pieces/Rook";
 
 export class Board { 
     cells: Cell[][] = [];
+    lostBlackPieces: Piece[] = [];
+    lostWhitePieces: Piece[] = [];
 
     public initCells() {
         for (let index = 0; index < 8; index += 1) {
@@ -28,6 +31,8 @@ export class Board {
     public getCopyBoard(): Board {
       const newBoard = new Board();
       newBoard.cells = this.cells;
+      newBoard.lostWhitePieces = this.lostWhitePieces;
+      newBoard.lostBlackPieces = this.lostBlackPieces;
       return newBoard;
     }
 
