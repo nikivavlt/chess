@@ -10,4 +10,10 @@ export class Knight extends Piece {
         this.logo = color === Colors.BLACK ? blackLogo : whiteLogo;
         this.name = PiecesNames.KNIGHT;
     }
+
+    canMove(target: Cell): boolean {
+        if (!super.canMove(target)) return false;
+
+        return true;
+    }
 }

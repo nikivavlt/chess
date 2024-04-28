@@ -10,4 +10,14 @@ export class Queen extends Piece {
         this.logo = color === Colors.BLACK ? blackLogo : whiteLogo;
         this.name = PiecesNames.QUEEN;
     }  
+
+    canMove(target: Cell): boolean {
+        if (!super.canMove(target)) return false;
+
+        if (this.cell.isEmptyDiagonal(target)) return true;
+        if (this.cell.isEmptyVerical(target)) return true;
+        if (this.cell.isEmptyHorizontal(target)) return true;
+        
+        return false;
+    }
 }

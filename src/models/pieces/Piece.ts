@@ -29,6 +29,9 @@ export class Piece {
     }
 
     canMove(target: Cell): boolean {
+        if (target.piece?.color === this.color) return false;
+        if (target.piece?.name === PiecesNames.KING) return false;
+
         return true;
     }
 

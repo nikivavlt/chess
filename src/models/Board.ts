@@ -25,6 +25,24 @@ export class Board {
         }
     }
 
+    public getCopyBoard(): Board {
+      const newBoard = new Board();
+      newBoard.cells = this.cells;
+      return newBoard;
+    }
+
+    public hightlightCells(selectedCell: Cell | null) {
+      for (let index = 0; index < this.cells.length; index += 1) {
+        const row = this.cells[index];
+
+        for (let indexTwo = 0; indexTwo < row.length; indexTwo += 1) {
+          const target = row[indexTwo];
+          target.available = !!selectedCell?.piece?.canMove(target);
+        }
+        
+      }
+    }
+
     public getCell(x: number, y: number) {
         return this.cells[y][x]
     }
