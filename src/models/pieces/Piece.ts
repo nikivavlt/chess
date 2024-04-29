@@ -32,6 +32,8 @@ export class Piece {
         if (target.piece?.color === this.color) return false;
         if (target.piece?.name === PiecesNames.KING) return false;
 
+        // isKingUnderAttack - ? (Check and mate)
+
         return true;
     }
 
